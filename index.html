@@ -224,7 +224,18 @@ player.x=entry==='W'?RIGHT-39:entry==='E'?AX+39:cx;player.y=entry==='N'?BOTTOM-4
 if(entry==='W'||entry==='E')player.y=330;
 if(entry==='N'||entry==='S')player.x=480;
 player.invuln=.65;
-if(rr.item&&!claimed.has(room)){let p=[ [280,215],[695,218],[300,440],[688,424],[480,237] ][Math.floor(rng()*5)];items.push({x:p[0],y:p[1],...rr.item,phase:rng()*6.28});}
+if(rr.item&&!claimed.has(room)){
+  // Keys and bonuses must never spawn inside lethal electric wall geometry.
+  const spots=[[280,215],[695,218],[300,440],[688,424],[480,237],[480,435],[230,310],[735,325],[470,320]];
+  const first=Math.floor(rng()*spots.length);
+  let pos=null;
+  for(let j=0;j<spots.length;j++){
+   let p=spots[(first+j)%spots.length];
+   if(!insideAnyWall(p[0],p[1],40)&&dist(p[0],p[1],player.x,player.y)>70){pos=p;break}
+  }
+  if(!pos)for(let y=180;y<=475&&!pos;y+=35)for(let x=170;x<=785;x+=35){if(!insideAnyWall(x,y,40)&&dist(x,y,player.x,player.y)>70){pos=[x,y];break}}
+  if(pos)items.push({x:pos[0],y:pos[1],...rr.item,phase:rng()*6.28});
+ }
 let types=['droid','drone','jumper'],count=(room===0?2:3+Math.min(6,Math.floor(level*1.15)+Math.floor(rng()*3)))+(difficulty==='advanced'?2:0);
 if(room===126){count=4;notice='ЯДРО КОМПЛЕКСА';noticeTime=2}
 enemies=[];for(let i=0;i<count;i++){let p,attempts=0;
