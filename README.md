@@ -1,30 +1,32 @@
-# SHAMUS // REIMAGINED
+# SHAMUS // REIMAGINED — Visual Alpha 0.2
 
-Играбельный фанатский прототип **v0.1** по мотивам классической *Shamus* (PC/DOS).
+**Playable fan remake prototype** with the approved **CGA Reborn × Tech-Noir** visual style.
 
-## Как запустить
+## What changed in 0.2
 
-Скачайте `index.html` и откройте его в современном браузере на компьютере или телефоне. Игра полностью содержится в одном HTML-файле: не нужны интернет, установка или сборка.
+- Luminous cyan electric barriers with animated zigzag arcs and metallic housing.
+- Industrial raised floors, grilles, engraved panels, amber lighting and magenta accents.
+- White/silver player armor with cyan visor.
+- Three high-contrast enemy appearances: red assault bot, purple drone, amber/orange jumper.
+- Neon HUD. All changes preserve gameplay coordinates, maze generation, collision sizes and timing from v0.1.
+- Native Android WebView application source with sensor-landscape orientation and GameSir gamepad relay.
 
-## Управление
+**Important:** the map is still an original 127-room prototype layout, not a faithful reconstruction of the original DOS maps. A cosmetic remaster is underway, not a finished remaster of the original gameplay.
 
-- **ПК:** WASD, стрелки или цифровой блок — движение в 8 направлениях. **Alt** или **Пробел** + направление — стрельба без перемещения.
-- **Геймпад (GameSir / XInput):** левый стик или крестовина — движение; A, RB либо RT + направление — стрельба.
-- **Телефон:** виртуальный стик слева, кнопка «ОГОНЬ» справа.
-- **Пауза:** P, Esc или Start на геймпаде.
+## Play on desktop or phone
 
-## В прототипе уже есть
+Open `index.html` in a modern browser (offline). Choose NOVICE or ADVANCED, then press **НАЧАТЬ ОПЕРАЦИЮ**.
 
-- Рисованная sci-fi-эстетика, электрические стены, эффекты и звуки.
-- Связанный лабиринт из 127 комнат в четырёх секторах.
-- Ключи, двери, враги, снаряды, Тень, счёт и два уровня сложности.
-- Ограничение в два одновременно выпущенных снаряда игрока.
-- Управление с клавиатуры, сенсорного экрана и геймпада.
+PC: WASD/arrows to move; Alt/Space + direction to shoot; P/Esc pause.
+Gamepad in browsers supporting Gamepad API: left stick/D-pad, A/RB/RT + direction to fire; Start pause.
+Touch: left virtual joystick and right fire button. Landscape recommended.
 
-## Статус
+## Android APK
 
-**Это прототип, а не точная реконструкция оригинальной DOS-версии.** Карты, расположение предметов, тайминги и ИИ в v0.1 пока отличаются от оригинала. Следующая цель — точно восстановить оригинальную топологию комнат и механику, сохранив современную графику и хардкор.
+The installable Android project is under [`android/`](android/). A GitHub Actions workflow (`Android APK (debug)`) builds an offline APK and uploads it as a run artifact. See [`android/README.md`](android/README.md) for details. A successful CI build and a real GameSir/device test have not yet been verified.
 
-Оригинальные исполняемые файлы DOS-игры (`SHAMUS.EXE`, `SHAMUS.OVL`) сюда **не загружались**.
+Android application architecture: native fullscreen wrapper around the same HTML5 Canvas engine. No network permissions; root `index.html` automatically packaged into the APK at build time.
 
-Некоммерческий экспериментальный фанатский проект. Права на оригинальную игру принадлежат соответствующим правообладателям.
+## Credits & status
+
+Noncommercial fan prototype. The original game and its intellectual property are owned by their respective rightsholders; original DOS executable files are **not** included in this repository.
