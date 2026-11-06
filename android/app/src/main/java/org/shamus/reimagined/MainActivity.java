@@ -17,7 +17,7 @@ import android.webkit.WebViewClient;
 public final class MainActivity extends Activity {
     private WebView gameView;
     private float stickX = 0f, stickY = 0f;
-    private boolean dLeft, dRight, dUp, dDown, aPressed, rightBumper, rightTrigger;
+    private boolean dLeft, dRight, dUp, dDown, aPressed, rightBumper, rightTrigger, startPressed;
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -72,11 +72,7 @@ public final class MainActivity extends Activity {
                 case KeyEvent.KEYCODE_BUTTON_R1: rightBumper = down; break;
                 case KeyEvent.KEYCODE_BUTTON_R2: rightTrigger = down; break;
                 case KeyEvent.KEYCODE_BUTTON_START:
-                    if (down && event.getRepeatCount() == 0 && gameView != null) {
-                        gameView.evaluateJavascript(
-                            "window.dispatchEvent(new KeyboardEvent('keydown',{code:'KeyP'}));", null);
-                    }
-                    return true;
+                    startPressed = down; break;
                 default: return super.dispatchKeyEvent(event);
             }
             relayPad();
@@ -108,7 +104,8 @@ public final class MainActivity extends Activity {
         float x = dLeft ? -1f : dRight ? 1f : stickX;
         float y = dUp ? -1f : dDown ? 1f : stickY;
         gameView.evaluateJavascript("window.__nativePad={x:"+x+",y:"+y+",fire:"+
-            (aPressed || rightBumper || rightTrigger)+"};", null);
+            (aPressed || rightBumper || rightTrigger)+",confirm:"+aPressed+
+            ",start:"+startPressed+"};", null);
     }
 
     @Override protected void onPause() {
