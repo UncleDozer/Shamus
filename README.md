@@ -1,50 +1,38 @@
 # SHAMUS // REIMAGINED
 
-**Visual Alpha v0.4 — CGA Reborn × Tech-Noir**
+**Maze Beta v0.5** · Android (offline) · CGA Reborn × Tech-Noir
 
-A standalone Android fan remake prototype of the PC/DOS arcade maze game *Shamus*, built with a 2D Canvas engine and a native Android shell. Runs offline.
+A visually modernized fan remake prototype of the IBM PC/DOS *Shamus*. The priority is its challenging maze gameplay, preserving v0.4's smooth animation and GameSir/touch control.
 
-## What's new in v0.4
+## What's new in 0.5
 
-- **32 independently rendered vector animation poses:** eight frames each for the hero and the three robot classes. Agent legs alternate, ruby crawler legs stride individually, violet drone rotor spins, and amber jumper legs compress for its leaps.
-- Higher-detail robot leg mechanisms, armor joints, cyan sensors, highlights and surface decals, preserving the previously approved CGA Reborn × Tech-Noir palette.
-- Visual-only shooting recoil and muzzle bloom, hit flash, outward energy-wave impacts, and debris/shards from destroyed robots.
-- Effects are capped for performance and do **not** change hitboxes, movement speed, aim direction, enemy behavior, room generation or scoring.
+- A **fixed map of 127 numbered rooms across 4 irregularly shaped sectors**, replacing the old equal-width randomized room graph.
+- New branches, dead ends and loops. Every room can be reached; transitions are reversible and cross-sector exits are explicit.
+- An exploration map on Pause: visited rooms, the corridors between them, and sector progress.
+- Key placement varies between a small set of candidate rooms (provisional behavior).
+- Reusable world topology data in [data/maze-topology-draft.json](data/maze-topology-draft.json), with connectivity validation in `tests/validate_maze.py`.
+- All movement, input, animations, shooting, hitboxes and room graphics are preserved from v0.4.
 
-### Carried forward from v0.3
+### IMPORTANT: original DOS maps not fully reconstructed yet
 
-- No enemy friendly fire / false room clears.
-- Swept bullet collision and correct +200 clear bonus.
-- Fixed room-specific enemy/item spawn verification.
-- GameSir **D-pad / left stick** chooses difficulty in menu; **A / Start** starts the game; **Start** toggles pause.
-- Touchscreen, keyboard and gamepad control. Android screen rotates to either landscape orientation.
+We found a **complete map of the IBM PC version**, published in 2013: [The Mazes of Shamus — IBM PC Version](https://int10h.org/blog/2013/10/mazes-of-shamus-ibm-pc/). The 0.5 route graph is **still a drafted, source-inspired approximation, not an exact transcription of that map**. We have *not* decoded every room's original links or all seven key/lock conditions. See [PC map research & verification plan](docs/PC_MAP_STATUS.md).
 
-## Install / run
+The original `SHAMUS.EXE` and `SHAMUS.OVL` files are not distributed in this repository.
 
-Go to the [latest successful Android APK workflow](https://github.com/UncleDozer/Shamus/actions/workflows/android-debug.yml), open its **Artifacts** section and download **Shamus-Reimagined-v0.4-debug-apk**. Extract `app-debug.apk`, then install on an Android phone.
+## Download APK
 
-Because GitHub's debug APK signing identity can vary between runs, you may need to remove v0.3 before installing v0.4. This is a development build, not a Play Store release.
+Open [GitHub Actions / Android APK](https://github.com/UncleDozer/Shamus/actions/workflows/android-debug.yml), choose the latest **successful** run, download the artifact `Shamus-Reimagined-v0.5-debug-apk`, extract `app-debug.apk`, and install it on Android.
 
-You can also open `index.html` in a browser for testing, but **Android is the primary target**.
+Android 8+; targets Android 16. The APK is standalone and works offline; the 2D game engine runs embedded in an Android WebView. It does not open Chrome. Test debug builds may use different signatures; uninstall the old version if Android refuses to upgrade.
 
 ## Controls
 
-| Mode | Controls |
-| --- | --- |
-| Main menu | GameSir D-pad / left stick selects difficulty; A / Start begins |
-| Gameplay | GameSir stick / D-pad or touchscreen joystick moves in eight directions |
-| Shoot | Hold A / RB / RT + direction |
-| Pause | Start or on-screen Pause |
-| Desktop | WASD / arrow keys to move, Alt / Space + direction to fire, P / Esc to pause |
+- **GameSir:** left stick or D-pad moves; A/RB/RT + direction fires; Start pauses/resumes. In menu, stick/D-pad selects Novice/Advanced, A/Start starts.
+- **Touch:** left virtual joystick, right fire button, on-screen Pause.
+- **Keyboard:** arrow keys/WASD move; Alt or Space + direction fires; P/Esc pauses.
 
-## Compatibility
+## Roadmap
 
-Android 8.0+ with target SDK 36 (Android 16). Uses an offline WebView shell: **this is an installable native Android application**, though the game engine itself is JavaScript/Canvas. No network permission is requested.
+Next: verified transcription of the authentic PC route map, exact keyhole/key rules, room-specific interiors and original enemy timing — without sacrificing existing frame rate or modern art.
 
-## Known limitations / roadmap
-
-The current 127-room map is **our own connected procedural prototype**, **not** a verified copy of the original DOS room layouts. Enemy AI, timings and item placements still need to be studied against the original binary in the v0.5 authenticity phase.
-
-The v0.4 art uses **programmatically articulated SVG sprites**, not hand-painted raster animation sheets. This is a meaningful motion upgrade, but further bespoke animation, directional frames and high-resolution character artwork may still be needed to match the concept sheet completely.
-
-Noncommercial fan experiment. Original game rights belong to their respective owners.
+Noncommercial fan prototype; original rights belong to their respective owners.
