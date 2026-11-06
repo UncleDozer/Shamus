@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#070b16"><title>SHAMUS // REIMAGINED — Visual Alpha 0.2</title>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#070b16"><title>SHAMUS // REIMAGINED — Visual Alpha 0.3</title>
 <style>
 :root{color-scheme:dark;--a:#0ceaff;--hot:#ff344d;--gold:#ffcb46}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050914;color:#d5e5ef;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;touch-action:none;overscroll-behavior:none}body{background:radial-gradient(ellipse at 50% 35%,#1c1434,#07091b 67%,#010106)}#frame{height:100dvh;width:100vw;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px;gap:4px}#topbar{width:min(100%,1260px);display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:26px;color:#6d859a;font-size:11px;letter-spacing:.11em;text-transform:uppercase;padding:0 10px}#topbar strong{color:#e5f9ff;letter-spacing:.2em}button{font:inherit;color:inherit}#topbar button,.tiny{border:1px solid #354a65;border-radius:4px;background:#0a1423;padding:5px 9px;color:#9bbdcc;font-weight:650;cursor:pointer}#topbar button:active{border-color:#9df7ff}#screenBox{position:relative;width:min(100%,1260px, calc((100dvh - 44px)*1.50));aspect-ratio:960/640;border:1px solid #ba36da;border-radius:5px;overflow:hidden;box-shadow:0 0 0 1px #09131f,0 17px 75px #000b,0 0 35px #e010e63d;background:#01030a}canvas{display:block;width:100%;height:100%;touch-action:none}#menu{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(0deg,#01040ceb,#01030bbf 30%,#040a17e8 85%);z-index:4;text-align:center;padding:18px}#menu.hidden{display:none}#menu .panel{position:relative;width:min(92%,600px);padding:27px clamp(15px,5vw,39px) 24px;border:1px solid #395777a8;background:linear-gradient(140deg,#112338df,#080d1de8 70%);box-shadow:inset 0 0 40px #0b345936,0 0 85px #010207bb;clip-path:polygon(0 14px,14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}.eyebrow{font-size:11px;letter-spacing:.35em;color:#ff62e7;font-weight:750}.logo{font-weight:1000;letter-spacing:.15em;color:#c8faff;font-size:clamp(37px,7vw,80px);line-height:1.1;text-shadow:0 3px #fc239e,0 7px #641a76,0 0 28px #00dbff99;margin:7px 0}.tagline{font-size:12px;color:#dfaa81;letter-spacing:.2em;font-weight:700;margin-bottom:21px}.desc{font-size:13px;line-height:1.55;color:#a5bfce;margin:14px auto 18px;max-width:450px}.modes{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:15px}.mode{border:1px solid #38556d;background:#0b1525;padding:10px 19px;font-size:12px;font-weight:750;letter-spacing:.14em;cursor:pointer}.mode.selected{border-color:#9feeff;color:#d9fbff;background:#173c50}.launch{background:linear-gradient(110deg,#d9eaff,#85e2eb);color:#06101b;border:0;cursor:pointer;font-weight:1000;font-size:13px;letter-spacing:.26em;padding:13px 30px;min-width:210px;box-shadow:0 4px 22px #41cfd64c}.launch:active{transform:translateY(1px)}.help{font-size:11px;color:#7e94a5;line-height:1.6;margin-top:17px}.help strong{color:#b9d4e5}.controls{display:none;width:min(100%,780px);flex:1;max-height:190px;align-items:center;justify-content:space-between;padding:4px 6vw;gap:35px}.joystick{position:relative;width:clamp(112px,28vw,152px);height:clamp(112px,28vw,152px);border-radius:50%;border:2px solid #5684a37d;background:radial-gradient(circle,#2140575b 0 26%,#122336a0 27% 52%,#0f1d2a 53%);box-shadow:inset 0 0 25px #6dd8fa22,0 0 22px #0009;touch-action:none;user-select:none}.joystick::after{content:'ДВИЖЕНИЕ / ПРИЦЕЛ';position:absolute;left:50%;top:-14px;white-space:nowrap;transform:translateX(-50%);font-size:9px;letter-spacing:.05em;color:#80abc0}.nub{position:absolute;width:45%;height:45%;border-radius:50%;left:27.5%;top:27.5%;background:radial-gradient(circle at 33% 33%,#6f98ab,#233e51 65%,#142b3d);border:1px solid #84b4c6;box-shadow:0 4px 14px #0009}.fire{height:104px;width:104px;border-radius:50%;background:radial-gradient(circle at 30% 20%,#963f3d,#5e1a29 75%);border:3px solid #db7366;box-shadow:0 0 26px #ff493b48,inset 0 0 16px #f4574f44;color:#fff6ee;font-size:16px;font-weight:1000;letter-spacing:.17em;touch-action:none;user-select:none}.fire.down{background:#e65a54;box-shadow:0 0 35px #ff7466a0}.fine{font-size:10px;color:#5f8199;min-height:12px;text-align:center;line-height:1.3}#hint{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.14em;color:#9cb9c5;text-shadow:0 2px #01030a;pointer-events:none;z-index:2}#notif{position:absolute;left:0;right:0;top:30%;display:none;text-align:center;font-size:clamp(14px,2vw,24px);font-weight:900;letter-spacing:.2em;text-shadow:0 0 26px #64d8e0;pointer-events:none}#notif.visible{display:block} @media(pointer:coarse){#frame{justify-content:flex-start;padding-top:max(4px,env(safe-area-inset-top))}#screenBox{width:min(100%,calc((100dvh - 220px)*1.5));max-height:calc(100dvh - 218px)}.controls{display:flex}.fine{display:none}#topbar{flex-shrink:0}}@media(pointer:coarse) and (orientation:landscape){#frame{flex-direction:row;justify-content:center;align-items:center;padding:2px;gap:1px}#topbar{position:absolute;top:2px;left:50%;transform:translateX(-50%);z-index:5;width:65%;font-size:9px;pointer-events:none}#topbar button{pointer-events:auto;padding:2px 7px}#screenBox{width:min(75vw,calc(94dvh*1.5));max-height:94dvh}.controls{flex:1;max-height:90dvh;min-width:0;width:auto;flex-direction:column;justify-content:space-around;padding:20px 2px;gap:4px}.joystick{width:min(23vh,120px);height:min(23vh,120px)}.joystick::after{display:none}.fire{width:min(21vh,100px);height:min(21vh,100px);font-size:13px}}@media(max-height:580px){#menu .panel{padding:13px 17px}.logo{font-size:35px;margin:2px}.desc{margin:6px auto;font-size:11px}.help{margin-top:7px}.tagline{margin-bottom:7px}.launch{padding:8px}.mode{padding:7px}}
 
@@ -17,14 +17,181 @@
  .controls{flex:none;height:188px;max-height:none;padding-top:24px}
 }
 </style></head><body>
-<div id="frame"><div id="topbar"><span><strong>SHAMUS</strong> / VISUAL ALPHA <b>0.2</b></span><div><button id="soundButton" title="Звук">ЗВУК: ВКЛ</button> <button id="pauseButton">ПАУЗА</button> <button id="fullButton">⛶</button></div></div><div id="screenBox"><canvas id="game" width="960" height="640" aria-label="Игровой экран Shamus"></canvas><div id="hint">ХОДЬБА: WASD / СТРЕЛКИ · СТРЕЛЬБА: ALT И НАПРАВЛЕНИЕ · ПАУЗА: P</div><div id="notif"></div><div id="menu"><div class="panel"><div class="eyebrow">CGA REBORN × TECH-NOIR / VISUAL ALPHA 0.2</div><div class="logo">SHAMUS</div><div class="tagline">NEON MEETS NIGHTMARE</div><div class="desc" id="menuDesc">Ты один против целого машинного лабиринта. Стены убивают. Враги возвращаются. Не задерживайся: Тень найдёт тебя.</div><div class="modes"><button class="mode selected" data-mode="novice">NOVICE</button><button class="mode" data-mode="advanced">ADVANCED</button></div><button id="startButton" class="launch">НАЧАТЬ ОПЕРАЦИЮ</button><div class="help"><strong>ПК:</strong> WASD / стрелки — движение; ALT / ПРОБЕЛ + направление — огонь без движения.<br><strong>Геймпад:</strong> левый стик / крестовина; A / RT + направление — огонь.<br><strong>Телефон:</strong> джойстик слева, удерживай «ОГОНЬ» справа.</div></div></div></div><div class="controls"><div id="stick" class="joystick"><div id="nub" class="nub"></div></div><button id="fire" class="fire">ОГОНЬ</button></div><div class="fine">ФАНАТСКИЙ ИГРАБЕЛЬНЫЙ ПРОТОТИП · НОВЫЙ ЛАБИРИНТ · НЕ ЭМУЛЯТОР ОРИГИНАЛА</div></div>
+<div id="frame"><div id="topbar"><span><strong>SHAMUS</strong> / VISUAL ALPHA <b>0.3</b></span><div><button id="soundButton" title="Звук">ЗВУК: ВКЛ</button> <button id="pauseButton">ПАУЗА</button> <button id="fullButton">⛶</button></div></div><div id="screenBox"><canvas id="game" width="960" height="640" aria-label="Игровой экран Shamus"></canvas><div id="hint">ХОДЬБА: WASD / СТРЕЛКИ · СТРЕЛЬБА: ALT И НАПРАВЛЕНИЕ · ПАУЗА: P</div><div id="notif"></div><div id="menu"><div class="panel"><div class="eyebrow">CGA REBORN × TECH-NOIR / VISUAL ALPHA 0.3</div><div class="logo">SHAMUS</div><div class="tagline">NEON MEETS NIGHTMARE</div><div class="desc" id="menuDesc">Ты один против целого машинного лабиринта. Стены убивают. Враги возвращаются. Не задерживайся: Тень найдёт тебя.</div><div class="modes"><button class="mode selected" data-mode="novice">NOVICE</button><button class="mode" data-mode="advanced">ADVANCED</button></div><button id="startButton" class="launch">НАЧАТЬ ОПЕРАЦИЮ</button><div class="help"><strong>ПК:</strong> WASD / стрелки — движение; ALT / ПРОБЕЛ + направление — огонь без движения.<br><strong>Геймпад:</strong> в меню — крестовина / стик, A / START — начать; в игре A / RT + направление — огонь, START — пауза.<br><strong>Телефон:</strong> джойстик слева, удерживай «ОГОНЬ» справа.</div></div></div></div><div class="controls"><div id="stick" class="joystick"><div id="nub" class="nub"></div></div><button id="fire" class="fire">ОГОНЬ</button></div><div class="fine">ФАНАТСКИЙ ИГРАБЕЛЬНЫЙ ПРОТОТИП · НОВЫЙ ЛАБИРИНТ · НЕ ЭМУЛЯТОР ОРИГИНАЛА</div></div>
+<script type="text/plain" id="sprite-agent">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2=".86" y2="1"><stop stop-color="#ffffff"/><stop offset=".28" stop-color="#d6f7ff"/><stop offset=".58" stop-color="#93a8c3"/><stop offset=".82" stop-color="#344263"/><stop offset="1" stop-color="#1e2743"/></linearGradient>
+<linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".38" stop-color="#f3faff"/><stop offset=".73" stop-color="#bbceda"/><stop offset="1" stop-color="#69768b"/></linearGradient>
+<linearGradient id="red" x1=".2" y1=".1" x2=".8" y2=".9"><stop stop-color="#ffae91"/><stop offset=".2" stop-color="#ff5642"/><stop offset=".56" stop-color="#e11744"/><stop offset="1" stop-color="#630b33"/></linearGradient>
+<linearGradient id="violet" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#f8acff"/><stop offset=".22" stop-color="#cd55ff"/><stop offset=".58" stop-color="#9524ed"/><stop offset="1" stop-color="#311075"/></linearGradient>
+<linearGradient id="orange" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#fff4b4"/><stop offset=".18" stop-color="#ffd14b"/><stop offset=".48" stop-color="#ff8b19"/><stop offset="1" stop-color="#a22f2b"/></linearGradient>
+<radialGradient id="optic" cx=".36" cy=".38" r=".8"><stop stop-color="#f6ffff"/><stop offset=".18" stop-color="#aeffff"/><stop offset=".43" stop-color="#01dffa"/><stop offset=".73" stop-color="#0087c1"/><stop offset="1" stop-color="#052345"/></radialGradient>
+<radialGradient id="shadow"><stop stop-color="#000c1b" stop-opacity=".7"/><stop offset="1" stop-color="#000712" stop-opacity="0"/></radialGradient>
+<linearGradient id="gun" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddedff"/><stop offset=".3" stop-color="#46667e"/><stop offset=".5" stop-color="#0c1a36"/><stop offset="1" stop-color="#253c64"/></linearGradient>
+<filter id="shine" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+
+<!-- agent is drawn facing north, under the orthographic camera -->
+<ellipse cx="64" cy="105" rx="40" ry="17" fill="url(#shadow)"/>
+<path d="M36 50L26 58L20 82L26 91L37 87L45 66Z M92 50L102 58L108 81L101 91L90 86L84 66Z" fill="#172744" stroke="#020a19" stroke-width="6" stroke-linejoin="round"/>
+<path d="M30 58L23 80L30 85L39 66Z M98 58L105 80L98 85L89 66Z" fill="url(#steel)" stroke="#263e61" stroke-width="3"/>
+<path d="M25 67L32 69 M96 69L103 67" stroke="#00eaff" stroke-width="3"/>
+<path d="M42 78L37 103L48 114L59 111L61 83Z M86 78L91 103L80 114L69 111L67 83Z" fill="url(#steel)" stroke="#071326" stroke-width="5" stroke-linejoin="round"/>
+<path d="M35 104L40 115L57 118L62 106L57 98L42 98Z M93 104L88 115L71 118L66 106L71 98L86 98Z" fill="url(#white)" stroke="#070f28" stroke-width="4" stroke-linejoin="round"/>
+<path d="M40 113L57 115 M71 115L88 113" stroke="#00edff" stroke-width="4"/>
+<path d="M43 84L59 88 M69 88L85 84" stroke="#1f2e56" stroke-width="5"/>
+<path d="M36 48L38 36L50 27L79 27L91 36L92 48L89 82L79 90L50 90L39 81Z" fill="#09192c" stroke="#050b17" stroke-width="7" stroke-linejoin="round"/>
+<path d="M40 48L49 39L80 39L89 48L84 77L75 84L53 84L43 75Z" fill="url(#white)" stroke="#62718c" stroke-width="2"/>
+<path d="M47 51L55 48L73 48L82 51L77 66L51 66Z" fill="#d9faff" stroke="#789aaa" stroke-width="2"/>
+<path d="M52 65L76 65L72 79L56 79Z" fill="#2a4262" stroke="#07162b" stroke-width="2"/>
+<path d="M58 68H70V74H58Z" fill="#16ddf7"/><path d="M60 69H66" stroke="white" stroke-width="2"/>
+<path d="M49 80L57 86 M71 86L79 80" stroke="#fc5268" stroke-width="3"/>
+<path d="M42 40L35 45L32 56L42 63L48 58L51 45Z M86 40L93 45L96 56L86 63L80 58L77 45Z" fill="url(#steel)" stroke="#091629" stroke-width="4"/>
+<circle cx="39" cy="53" r="5" fill="#071d36" stroke="#00d8f9" stroke-width="2"/><circle cx="89" cy="53" r="5" fill="#071d36" stroke="#fc496e" stroke-width="2"/>
+<!-- helmet -->
+<ellipse cx="64" cy="33" rx="25" ry="24" fill="url(#steel)" stroke="#07101e" stroke-width="6"/>
+<path d="M46 25Q52 13 70 13" fill="none" stroke="#fff" stroke-width="4" opacity=".85"/>
+<path d="M42 31Q64 22 85 31L85 43Q64 49 43 43Z" fill="#07172b" stroke="#061023" stroke-width="4"/>
+<path d="M47 33Q63 27 80 32L80 41Q63 44 47 41Z" fill="url(#optic)"/>
+<ellipse cx="59" cy="35" rx="7" ry="3" fill="#fff" opacity=".75"/>
+<path d="M55 53H73" stroke="#202b46" stroke-width="3"/>
+<path d="M60 53H67" stroke="#ff5d56" stroke-width="2"/>
+<path d="M47 16L53 14" stroke="#ff5570" stroke-width="3"/>
+<!-- compact forward blaster -->
+<path d="M59 26L56 6L72 6L69 26Z" fill="url(#gun)" stroke="#061324" stroke-width="4"/>
+<rect x="57" y="4" width="14" height="9" rx="2" fill="#243c5b" stroke="#a6d1e4" stroke-width="2"/>
+<rect x="61" y="4" width="6" height="7" fill="#7bffff"/>
+<path d="M58 23L70 23" stroke="#fc5571" stroke-width="2"/>
+<circle cx="49" cy="50" r="1.7" fill="#f4ecff"/><circle cx="81" cy="50" r="1.7" fill="#f4ecff"/>
+
+</svg>
+</script>
+<script type="text/plain" id="sprite-droid">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2=".86" y2="1"><stop stop-color="#ffffff"/><stop offset=".28" stop-color="#d6f7ff"/><stop offset=".58" stop-color="#93a8c3"/><stop offset=".82" stop-color="#344263"/><stop offset="1" stop-color="#1e2743"/></linearGradient>
+<linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".38" stop-color="#f3faff"/><stop offset=".73" stop-color="#bbceda"/><stop offset="1" stop-color="#69768b"/></linearGradient>
+<linearGradient id="red" x1=".2" y1=".1" x2=".8" y2=".9"><stop stop-color="#ffae91"/><stop offset=".2" stop-color="#ff5642"/><stop offset=".56" stop-color="#e11744"/><stop offset="1" stop-color="#630b33"/></linearGradient>
+<linearGradient id="violet" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#f8acff"/><stop offset=".22" stop-color="#cd55ff"/><stop offset=".58" stop-color="#9524ed"/><stop offset="1" stop-color="#311075"/></linearGradient>
+<linearGradient id="orange" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#fff4b4"/><stop offset=".18" stop-color="#ffd14b"/><stop offset=".48" stop-color="#ff8b19"/><stop offset="1" stop-color="#a22f2b"/></linearGradient>
+<radialGradient id="optic" cx=".36" cy=".38" r=".8"><stop stop-color="#f6ffff"/><stop offset=".18" stop-color="#aeffff"/><stop offset=".43" stop-color="#01dffa"/><stop offset=".73" stop-color="#0087c1"/><stop offset="1" stop-color="#052345"/></radialGradient>
+<radialGradient id="shadow"><stop stop-color="#000c1b" stop-opacity=".7"/><stop offset="1" stop-color="#000712" stop-opacity="0"/></radialGradient>
+<linearGradient id="gun" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddedff"/><stop offset=".3" stop-color="#46667e"/><stop offset=".5" stop-color="#0c1a36"/><stop offset="1" stop-color="#253c64"/></linearGradient>
+<filter id="shine" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+
+<ellipse cx="64" cy="103" rx="45" ry="15" fill="url(#shadow)"/>
+<!-- segmented six-legged ruby assault crawler -->
+<g fill="none" stroke="#070d22" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+<path d="M44 57L24 57L13 77L20 101 M41 75L26 88L32 112 M84 57L104 57L115 77L108 101 M87 75L102 88L96 112"/>
+</g>
+<g fill="none" stroke="#ff5249" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M44 57L24 57L13 77L20 101 M41 75L26 88L32 112 M84 57L104 57L115 77L108 101 M87 75L102 88L96 112"/>
+</g>
+<g fill="none" stroke="#ffcf40" stroke-width="4" stroke-linecap="round">
+<path d="M20 101L14 109 M32 112L28 120 M108 101L114 109 M96 112L100 120 M23 57L20 67 M105 57L108 67"/>
+</g>
+<path d="M48 35L80 35L93 51L87 78L76 91L51 91L40 78L35 52Z" fill="url(#red)" stroke="#1b0b25" stroke-width="6" stroke-linejoin="round"/>
+<path d="M44 44Q63 31 85 44" fill="none" stroke="#ffbaac" stroke-width="3"/>
+<path d="M38 57L32 51L24 56L25 68L34 72L40 67 M88 57L96 51L104 56L103 68L94 72L88 67" fill="#8b1b3f" stroke="#161025" stroke-width="3"/>
+<circle cx="32" cy="61" r="6" fill="url(#optic)" stroke="#110d25" stroke-width="3"/><circle cx="96" cy="61" r="6" fill="url(#optic)" stroke="#110d25" stroke-width="3"/>
+<path d="M46 52Q63 46 82 52L82 71Q63 77 46 71Z" fill="#080f2c" stroke="#ffb13e" stroke-width="2"/>
+<path d="M49 55Q64 50 79 55L78 69Q64 72 49 69Z" fill="url(#optic)"/>
+<ellipse cx="59" cy="59" rx="7" ry="3" fill="white" opacity=".7"/>
+<rect x="50" y="77" width="28" height="12" rx="3" fill="#260d30" stroke="#ff8e5d" stroke-width="3"/>
+<rect x="55" y="80" width="18" height="5" fill="#09eaff"/>
+<path d="M57 34L57 26L71 26L71 34" fill="#2d2248" stroke="#ffbd8b" stroke-width="2"/>
+<path d="M53 40L75 40" stroke="#fff0d7" stroke-width="3" opacity=".7"/>
+<path d="M40 67L47 76 M88 67L81 76" stroke="#360d28" stroke-width="4"/>
+<circle cx="49" cy="45" r="2" fill="#ffefc6"/><circle cx="80" cy="45" r="2" fill="#ffefc6"/>
+
+</svg>
+</script>
+<script type="text/plain" id="sprite-drone">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2=".86" y2="1"><stop stop-color="#ffffff"/><stop offset=".28" stop-color="#d6f7ff"/><stop offset=".58" stop-color="#93a8c3"/><stop offset=".82" stop-color="#344263"/><stop offset="1" stop-color="#1e2743"/></linearGradient>
+<linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".38" stop-color="#f3faff"/><stop offset=".73" stop-color="#bbceda"/><stop offset="1" stop-color="#69768b"/></linearGradient>
+<linearGradient id="red" x1=".2" y1=".1" x2=".8" y2=".9"><stop stop-color="#ffae91"/><stop offset=".2" stop-color="#ff5642"/><stop offset=".56" stop-color="#e11744"/><stop offset="1" stop-color="#630b33"/></linearGradient>
+<linearGradient id="violet" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#f8acff"/><stop offset=".22" stop-color="#cd55ff"/><stop offset=".58" stop-color="#9524ed"/><stop offset="1" stop-color="#311075"/></linearGradient>
+<linearGradient id="orange" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#fff4b4"/><stop offset=".18" stop-color="#ffd14b"/><stop offset=".48" stop-color="#ff8b19"/><stop offset="1" stop-color="#a22f2b"/></linearGradient>
+<radialGradient id="optic" cx=".36" cy=".38" r=".8"><stop stop-color="#f6ffff"/><stop offset=".18" stop-color="#aeffff"/><stop offset=".43" stop-color="#01dffa"/><stop offset=".73" stop-color="#0087c1"/><stop offset="1" stop-color="#052345"/></radialGradient>
+<radialGradient id="shadow"><stop stop-color="#000c1b" stop-opacity=".7"/><stop offset="1" stop-color="#000712" stop-opacity="0"/></radialGradient>
+<linearGradient id="gun" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddedff"/><stop offset=".3" stop-color="#46667e"/><stop offset=".5" stop-color="#0c1a36"/><stop offset="1" stop-color="#253c64"/></linearGradient>
+<filter id="shine" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+
+<ellipse cx="64" cy="105" rx="40" ry="16" fill="url(#shadow)"/>
+<!-- four repulsor fins and ring vanes, read at small phone sizes -->
+<g transform="translate(64 65)">
+<g fill="url(#violet)" stroke="#140d32" stroke-width="5" stroke-linejoin="round">
+<path d="M-13-20L-20-43L-6-57L9-36L6-18Z"/>
+<path d="M-13-20L-20-43L-6-57L9-36L6-18Z" transform="rotate(90)"/>
+<path d="M-13-20L-20-43L-6-57L9-36L6-18Z" transform="rotate(180)"/>
+<path d="M-13-20L-20-43L-6-57L9-36L6-18Z" transform="rotate(270)"/>
+</g>
+<g stroke="#ffce46" stroke-width="4" stroke-linecap="round">
+<path d="M-8-44L-6-51 M44-8L51-6 M8 44L6 51 M-44 8L-51 6"/>
+</g>
+<circle r="31" fill="#180c47" stroke="#ed5fff" stroke-width="5"/>
+<circle r="26" fill="url(#violet)" stroke="#2b0b68" stroke-width="3"/>
+<path d="M-15-18Q0-31 18-14" fill="none" stroke="#ffcef8" stroke-width="3" opacity=".9"/>
+<path d="M-20-6Q-4-14 20-6L20 10Q0 17-20 10Z" fill="#080b2c" stroke="#040b20" stroke-width="3"/>
+<path d="M-17-3Q0-10 17-3L16 8Q0 11-17 8Z" fill="url(#optic)"/>
+<ellipse cx="-4" cy="0" rx="6" ry="3" fill="#fff" opacity=".85"/>
+<rect x="-10" y="17" width="20" height="11" rx="3" fill="#0a1532" stroke="#f65df8" stroke-width="2"/>
+<rect x="-6" y="21" width="12" height="4" fill="#ffca4b"/>
+<circle cx="-23" cy="2" r="3" fill="#10ebff"/><circle cx="23" cy="2" r="3" fill="#10ebff"/>
+</g>
+
+</svg>
+</script>
+<script type="text/plain" id="sprite-jumper">
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<defs>
+<linearGradient id="steel" x1="0" y1="0" x2=".86" y2="1"><stop stop-color="#ffffff"/><stop offset=".28" stop-color="#d6f7ff"/><stop offset=".58" stop-color="#93a8c3"/><stop offset=".82" stop-color="#344263"/><stop offset="1" stop-color="#1e2743"/></linearGradient>
+<linearGradient id="white" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".38" stop-color="#f3faff"/><stop offset=".73" stop-color="#bbceda"/><stop offset="1" stop-color="#69768b"/></linearGradient>
+<linearGradient id="red" x1=".2" y1=".1" x2=".8" y2=".9"><stop stop-color="#ffae91"/><stop offset=".2" stop-color="#ff5642"/><stop offset=".56" stop-color="#e11744"/><stop offset="1" stop-color="#630b33"/></linearGradient>
+<linearGradient id="violet" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#f8acff"/><stop offset=".22" stop-color="#cd55ff"/><stop offset=".58" stop-color="#9524ed"/><stop offset="1" stop-color="#311075"/></linearGradient>
+<linearGradient id="orange" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#fff4b4"/><stop offset=".18" stop-color="#ffd14b"/><stop offset=".48" stop-color="#ff8b19"/><stop offset="1" stop-color="#a22f2b"/></linearGradient>
+<radialGradient id="optic" cx=".36" cy=".38" r=".8"><stop stop-color="#f6ffff"/><stop offset=".18" stop-color="#aeffff"/><stop offset=".43" stop-color="#01dffa"/><stop offset=".73" stop-color="#0087c1"/><stop offset="1" stop-color="#052345"/></radialGradient>
+<radialGradient id="shadow"><stop stop-color="#000c1b" stop-opacity=".7"/><stop offset="1" stop-color="#000712" stop-opacity="0"/></radialGradient>
+<linearGradient id="gun" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ddedff"/><stop offset=".3" stop-color="#46667e"/><stop offset=".5" stop-color="#0c1a36"/><stop offset="1" stop-color="#253c64"/></linearGradient>
+<filter id="shine" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+
+<ellipse cx="64" cy="108" rx="44" ry="14" fill="url(#shadow)"/>
+<!-- jumping scarab, stretched shock-absorber legs -->
+<g stroke="#170c22" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M43 56L23 67L18 92L12 113 M40 77L27 92L31 116 M85 56L105 67L110 92L116 113 M88 77L101 92L97 116"/>
+</g>
+<g stroke="#ff9930" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M43 56L23 67L18 92L12 113 M40 77L27 92L31 116 M85 56L105 67L110 92L116 113 M88 77L101 92L97 116"/>
+</g>
+<g stroke="#fa245f" stroke-width="4" fill="none" stroke-linecap="round">
+<path d="M12 113L9 119 M31 116L26 121 M116 113L119 119 M97 116L102 121"/>
+</g>
+<path d="M41 40L53 28L75 28L87 40L92 75L78 95L50 95L36 75Z" fill="url(#orange)" stroke="#26102b" stroke-width="6"/>
+<path d="M45 42L56 33L72 33L83 42" fill="none" stroke="#fffdc3" stroke-width="4"/>
+<path d="M42 54L32 49L28 56L31 68L41 70 M86 54L96 49L100 56L97 68L87 70" fill="#e84b2e" stroke="#40122a" stroke-width="3"/>
+<path d="M48 53L80 53L80 75Q65 82 48 75Z" fill="#150c2c" stroke="#250e23" stroke-width="4"/>
+<path d="M51 56L77 56L77 69L51 69Z" fill="#ff2c7c"/>
+<path d="M55 60L73 60L73 66L55 66Z" fill="url(#optic)"/>
+<path d="M46 83L55 91L73 91L82 83" stroke="#f92963" stroke-width="5" fill="none"/>
+<path d="M54 38L74 38" stroke="#11162c" stroke-width="3"/>
+<circle cx="47" cy="50" r="3" fill="#e6ffff"/><circle cx="81" cy="50" r="3" fill="#e6ffff"/>
+<path d="M50 100L78 100" stroke="#facc53" stroke-width="3"/>
+
+</svg>
+</script>
 <script>
 'use strict';
 (()=>{
 const cv=document.getElementById('game'),c=cv.getContext('2d',{alpha:false});
 c.imageSmoothingEnabled=true;const W=960,H=640, AX=58,AY=87,AW=844,AH=486,RIGHT=AX+AW,BOTTOM=AY+AH, PI=Math.PI;
 const ui={menu:document.getElementById('menu'),start:document.getElementById('startButton'),desc:document.getElementById('menuDesc'),hint:document.getElementById('hint'),note:document.getElementById('notif'),sound:document.getElementById('soundButton'),pause:document.getElementById('pauseButton')};
-let difficulty='novice',state='menu',room=0,level=0,score=0,lives=5,keysCollected=new Set(),claimed=new Set(),opened=new Set(),cleared=new Set(),discovered=new Set(),rooms=[],levelMaps=[],enemies=[],shots=[],particles=[],items=[],walls=[],gameTime=0,roomTime=0,shadow=null,player={x:480,y:330,dir:0,anim:0,invuln:0},shake=0,flash=0,notice='',noticeTime=0,mouseHint=0,sound=true,initialized=false;
+let difficulty='novice',state='menu',room=0,level=0,score=0,lives=5,keysCollected=new Set(),claimed=new Set(),opened=new Set(),cleared=new Set(),discovered=new Set(),rooms=[],levelMaps=[],enemies=[],shots=[],particles=[],items=[],walls=[],gameTime=0,roomTime=0,shadow=null,player={x:480,y:330,dir:0,anim:0,invuln:0},shake=0,flash=0,notice='',noticeTime=0,mouseHint=0,sound=true,initialized=false,roomEnemiesStarted=0,roomKills=0;
 let floorCache=document.createElement('canvas'); floorCache.width=W;floorCache.height=H;let f=floorCache.getContext('2d');
 let best=0;try{best=Number(localStorage.getItem('shamus_remix_best')||0)}catch(e){}
 const K=new Set(),touch={x:0,y:0,active:false,fire:false},joy={x:0,y:0,fire:false};
@@ -52,7 +219,7 @@ rooms[12].item={type:'key',key:0};rooms[52].item={type:'key',key:1};rooms[84].it
 for(let [id,type] of [[3,'potion'],[8,'mystery'],[18,'mystery'],[25,'potion'],[37,'mystery'],[45,'potion'],[61,'mystery'],[75,'potion'],[93,'mystery'],[101,'potion'],[110,'mystery'],[120,'potion']])rooms[id].item={type};
 }
 function isGate(dir){let r=rooms[room];return dir==='E'&&r.gate!==undefined&&!opened.has(room)}
-function setRoom(to,entry=null){room=to;level=rooms[room].z;discovered.add(room);roomTime=0;shadow=null;shots=[];particles=[];flash=.65;shake=1.5;notice='';items=[];const rr=rooms[room],rng=seeded(rr.rng),cx=480,cy=330;
+function setRoom(to,entry=null){room=to;level=rooms[room].z;discovered.add(room);roomTime=0;shadow=null;shots=[];particles=[];flash=.65;shake=1.5;notice='';items=[];const rr=rooms[room],rng=seeded(rr.rng),cx=480,cy=330;buildWalls();
 player.x=entry==='W'?RIGHT-39:entry==='E'?AX+39:cx;player.y=entry==='N'?BOTTOM-40:entry==='S'?AY+40:cy;
 if(entry==='W'||entry==='E')player.y=330;
 if(entry==='N'||entry==='S')player.x=480;
@@ -60,11 +227,18 @@ player.invuln=.65;
 if(rr.item&&!claimed.has(room)){let p=[ [280,215],[695,218],[300,440],[688,424],[480,237] ][Math.floor(rng()*5)];items.push({x:p[0],y:p[1],...rr.item,phase:rng()*6.28});}
 let types=['droid','drone','jumper'],count=(room===0?2:3+Math.min(6,Math.floor(level*1.15)+Math.floor(rng()*3)))+(difficulty==='advanced'?2:0);
 if(room===126){count=4;notice='ЯДРО КОМПЛЕКСА';noticeTime=2}
-enemies=[];for(let i=0;i<count;i++){let p,attempts=0;do{p={x:180+rng()*600,y:160+rng()*320}}while((dist(p.x,p.y,player.x,player.y)<165||insideAnyWall(p.x,p.y,19))&&++attempts<60);
+enemies=[];for(let i=0;i<count;i++){let p,attempts=0;
+ do{p={x:180+rng()*600,y:160+rng()*320}}
+ while((dist(p.x,p.y,player.x,player.y)<205||insideAnyWall(p.x,p.y,22))&&++attempts<140);
+ if(dist(p.x,p.y,player.x,player.y)<205||insideAnyWall(p.x,p.y,22)){
+  const fallback=[[180,185],[780,185],[180,465],[780,465],[250,250],[720,410],[360,455],[620,190]];
+  let safe=fallback.find(([x,y])=>dist(x,y,player.x,player.y)>=160&&!insideAnyWall(x,y,22));
+  if(safe)p={x:safe[0],y:safe[1]};
+ }
 let type=types[Math.floor(rng()*3)];enemies.push({x:p.x,y:p.y,type,phase:rng()*8,heading:rng()*6.28,t:rng()*2,shoot:rnd(.7,2.7),hp:1,stun:0,jump:0})}
-if(room===0){enemies=enemies.filter(e=>dist(e.x,e.y,player.x,player.y)>200)}
+roomEnemiesStarted=enemies.length;roomKills=0;
 if(room===126){shadow={x:735,y:330,stun:0,hp:6,final:true};}
-buildWalls();paintFloor();audio(270,.13,'triangle',.022,-110);if(room===0&&gameTime===0){notice='СЕКТОР 01 · ПРОНИКНОВЕНИЕ';noticeTime=3}}
+paintFloor();audio(270,.13,'triangle',.022,-110);if(room===0&&gameTime===0){notice='СЕКТОР 01 · ПРОНИКНОВЕНИЕ';noticeTime=3}}
 function insideAnyWall(x,y,rad){return walls.some(w=>x>w.x-rad&&x<w.x+w.w+rad&&y>w.y-rad&&y<w.y+w.h+rad)}
 function buildWalls(){walls=[];const rng=seeded(rooms[room].rng+8866); const opts=[ {x:298,y:208,w:60,h:92},{x:608,y:372,w:62,h:87}, {x:445,y:188,w:68,h:76}, {x:447,y:388,w:65,h:74}, {x:259,y:365,w:68,h:72}, {x:655,y:191,w:62,h:70},{x:353,y:302,w:59,h:59},{x:551,y:292,w:63,h:62}];const cnt=room===0?2:room===126?4:2+Math.floor(rng()*4);let candidates=opts.slice();for(let j=0;j<cnt;j++){let i=Math.floor(rng()*candidates.length);walls.push({...candidates.splice(i,1)[0]});} }
 function paintFloor(){
@@ -177,6 +351,19 @@ function drawDecor(t){
   rect(x,BOTTOM-32,43,6,'#1c2a40');rect(x+16,BOTTOM-30,13,3,'#ff30d0');
  }
 }
+// Independently editable SVG sprite assets preserve hard outlines at phone scale.
+// Canvas primitives below are fallback if an asset is temporarily unavailable.
+const spriteAssets={};
+for(const [kind,path] of Object.entries({agent:'assets/agent.svg',droid:'assets/droid.svg',drone:'assets/drone.svg',jumper:'assets/jumper.svg'})){
+ const img=new Image();img.decoding='async';const svg=document.getElementById('sprite-'+kind).textContent;img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);spriteAssets[kind]=img;
+}
+function renderSprite(kind,x,y,rotation,size,t){
+ const img=spriteAssets[kind];
+ if(!img||!img.complete||!img.naturalWidth)return false;
+ c.save();c.translate(x,y);c.rotate(rotation);
+ const b=kind==='agent'?Math.sin(t*12)*1.3:kind==='jumper'?Math.sin(t*11)*1.8:Math.sin(t*6)*1.1;
+ c.translate(0,b);c.drawImage(img,-size/2,-size/2,size,size);c.restore();return true;
+}
 // White armored agent, cyan visor; readable in eight compass directions.
 function robot(x,y,a,t){
  c.save();c.translate(x,y);c.rotate(a);
@@ -268,13 +455,19 @@ let g=c.createLinearGradient(0,0,0,640);g.addColorStop(0,'#78d7f505');g.addColor
 function drawBullets(){for(let s of shots){let col=s.enemy?'#ff9d61':'#8effed';glow(s.x,s.y,24,col,.45);c.save();c.shadowColor=col;c.shadowBlur=9;c.fillStyle='#ffffff';c.beginPath();c.arc(s.x,s.y,s.enemy?3.2:4.2,0,2*PI);c.fill();c.restore();stroke(s.x-s.vx*.025,s.y-s.vy*.025,s.x,s.y,col,s.enemy?2:3)}}
 function drawParticles(dt){for(let p of particles){c.save();c.globalAlpha=clamp(p.life/p.max,0,1);rect(p.x,p.y,p.r,p.r,p.color);c.restore()}}
 function drawMapOverlay(){if(state!=='paused')return;rect(0,0,960,640,'#000b');label('ПАУЗА // СХЕМА ОБЛАСТИ',480,147,28,'#e1f9ff','900','center');let cell=26,space=4;for(let y=0;y<4;y++)for(let x=0;x<8;x++){let id=level*32+x+y*8;if(id>126)continue;let px=480-125+x*(cell+space),py=215+y*(cell+space);rect(px,py,cell,cell,discovered.has(id)?id===room?'#94efff':'#28485e':'#0c1523');if(discovered.has(id))label(String(id),px+13,py+13,11,id===room?'#102333':'#8ba9b9','700','center');}label('ВОЗВРАТ: P / START / КНОПКА ПАУЗА',480,440,12,'#9cc1cb','700','center');}
-function draw(t){c.clearRect(0,0,W,H);c.save();if(shake>0){c.translate(rnd(-shake,shake),rnd(-shake,shake))}c.drawImage(floorCache,0,0);drawDecor(t);drawBarriers();for(let it of items)drawPickup(it,t);for(let e of enemies){if(e.type==='droid')drawDroid(e,t);else if(e.type==='drone')drawDrone(e,t);else drawJumper(e,t)}drawShadow(t);drawBullets();drawParticles();if(lives>0){c.save();if(player.invuln>0)c.globalAlpha=.6+.4*Math.sin(t*25)**2;robot(player.x,player.y,player.dir,t);c.restore()}
+function draw(t){c.clearRect(0,0,W,H);c.save();if(shake>0){c.translate(rnd(-shake,shake),rnd(-shake,shake))}c.drawImage(floorCache,0,0);drawDecor(t);drawBarriers();for(let it of items)drawPickup(it,t);for(let e of enemies){if(e.type==='droid'){if(!renderSprite('droid',e.x,e.y,e.heading,73,t))drawDroid(e,t)}else if(e.type==='drone'){if(!renderSprite('drone',e.x,e.y,e.phase+t*3.2,69,t))drawDrone(e,t)}else {if(!renderSprite('jumper',e.x,e.y,e.heading,73,t))drawJumper(e,t)}}drawShadow(t);drawBullets();drawParticles();if(lives>0){c.save();if(player.invuln>0)c.globalAlpha=.6+.4*Math.sin(t*25)**2;if(!renderSprite('agent',player.x,player.y,player.dir,72,t))robot(player.x,player.y,player.dir,t);c.restore()}
 if(flash>0){c.fillStyle=`rgba(108,220,241,${flash*.11})`;c.fillRect(0,0,W,H)}c.restore();drawHUD(t);if(noticeTime>0&&state==='playing'){rect(240,277,480,47,'#070e1bc8');label(notice,480,300,18,'#c6f1f0','900','center')}
 if(state==='paused')drawMapOverlay();if(state==='menu')drawAtmosphere(t);
 // Restrained film grain / scan lines.
 c.fillStyle='#b6e7ff08';for(let y=3;y<H;y+=5)c.fillRect(0,y,W,1);
 }
 function drawAtmosphere(t){for(let i=0;i<7;i++){let x=90+(i*121)%800,y=120+Math.sin(t*.4+i*2.5)*155+150;glow(x,y,50+Math.sin(t+i)*20,i%3?'#67e2ed':'#ff6e63',.09)} }
+function segmentCircleHit(ax,ay,bx,by,cx,cy,r){
+ const vx=bx-ax,vy=by-ay,den=vx*vx+vy*vy;
+ const u=den>0?clamp(((cx-ax)*vx+(cy-ay)*vy)/den,0,1):0;
+ const px=ax+vx*u,py=ay+vy*u;
+ return (px-cx)**2+(py-cy)**2<r*r;
+}
 function collideCircleRect(x,y,r,w){let cx=clamp(x,w.x,w.x+w.w),cy=clamp(y,w.y,w.y+w.h);return dist(x,y,cx,cy)<r}
 function movePlayer(dx,dy,dt){let sp=room>=0?172+level*10:170;let nx=player.x+dx*sp*dt,ny=player.y+dy*sp*dt;
 for(let w of walls)if(collideCircleRect(nx,ny,12,w)){die();return}
@@ -297,10 +490,10 @@ if(K.has('ArrowLeft')||K.has('KeyA')||K.has('Numpad4'))ax--;if(K.has('ArrowRight
 if(K.has('Numpad7')){ax--;ay--}if(K.has('Numpad9')){ax++;ay--}if(K.has('Numpad1')){ax--;ay++}if(K.has('Numpad3')){ax++;ay++}
 shoot=K.has('AltLeft')||K.has('AltRight')||K.has('Space')||K.has('ControlLeft')||K.has('ControlRight');
 if(touch.active&&Math.hypot(touch.x,touch.y)>.15){ax=touch.x;ay=touch.y;}shoot=shoot||touch.fire;
-let pad=navigator.getGamepads?.();if(pad)for(let gp of pad){if(!gp||!gp.connected)continue;let x=gp.axes[0]||0,y=gp.axes[1]||0;if(gp.buttons[14]?.pressed)x=-1;if(gp.buttons[15]?.pressed)x=1;if(gp.buttons[12]?.pressed)y=-1;if(gp.buttons[13]?.pressed)y=1;if(Math.hypot(x,y)>.2){ax=x;ay=y;}shoot=shoot||Boolean(gp.buttons[0]?.pressed||gp.buttons[5]?.pressed||gp.buttons[7]?.pressed);if(gp.buttons[9]?.pressed){if(!joy.pauseLatch)togglePause();joy.pauseLatch=true}else joy.pauseLatch=false;}
+let pad=navigator.getGamepads?.();if(pad)for(let gp of pad){if(!gp||!gp.connected)continue;let x=gp.axes[0]||0,y=gp.axes[1]||0;if(gp.buttons[14]?.pressed)x=-1;if(gp.buttons[15]?.pressed)x=1;if(gp.buttons[12]?.pressed)y=-1;if(gp.buttons[13]?.pressed)y=1;if(Math.hypot(x,y)>.2){ax=x;ay=y;}shoot=shoot||Boolean(!menuFireBlocked&&(gp.buttons[0]?.pressed||gp.buttons[5]?.pressed||gp.buttons[7]?.pressed));}
 // Android WebView does not consistently expose the Gamepad API; native Activity relays controls here.
 const nativePad=window.__nativePad;
-if(nativePad){if(Math.hypot(nativePad.x||0,nativePad.y||0)>.16){ax=nativePad.x;ay=nativePad.y;}shoot=shoot||Boolean(nativePad.fire)}
+if(nativePad){if(Math.hypot(nativePad.x||0,nativePad.y||0)>.16){ax=nativePad.x;ay=nativePad.y;}shoot=shoot||Boolean(nativePad.fire&&!menuFireBlocked)}
 let m=Math.hypot(ax,ay);if(m>1){ax/=m;ay/=m}if(m>.12){if(shoot){axFire=ax;ayFire=ay}else{player.dir=Math.atan2(ax,-ay);movePlayer(ax,ay,dt);player.anim+=dt}}else if(shoot){axFire=Math.sin(player.dir);ayFire=-Math.cos(player.dir)}
 shootTimer-=dt;if(shoot&&shootTimer<=0){fireShot(axFire,ayFire);shootTimer=.14}
 for(let e of enemies){e.t+=dt;e.shoot-=dt;let dx=player.x-e.x,dy=player.y-e.y,d=Math.hypot(dx,dy)||1;
@@ -310,25 +503,82 @@ if(e.type==='jumper'){e.heading=Math.atan2(dx,-dy);if(e.jump>0){e.x+=e.jx*dt;e.y
 if(e.x<AX+35||e.x>RIGHT-35||e.y<AY+35||e.y>BOTTOM-35||insideAnyWall(e.x,e.y,16)){e.x=clamp(e.x,AX+42,RIGHT-42);e.y=clamp(e.y,AY+42,BOTTOM-42);e.phase+=3.17;if(insideAnyWall(e.x,e.y,16)){e.x-=dx/d*30*dt;e.y-=dy/d*30*dt}}
 if(dist(e.x,e.y,player.x,player.y)<25&&player.invuln<=0){die();return}
 }
-// Bullets hit either combatants, terrain, or the electrified perimeter; enemy friendly-fire is enabled.
-for(let s of [...shots]){s.x+=s.vx*dt;s.y+=s.vy*dt;s.life-=dt;let dead=s.life<=0||s.x<AX+15||s.x>RIGHT-15||s.y<AY+15||s.y>BOTTOM-15||insideAnyWall(s.x,s.y,5);if(!dead){if(s.enemy){if(dist(s.x,s.y,player.x,player.y)<14&&player.invuln<=0){die();return}for(let e of enemies){if(dist(s.x,s.y,e.x,e.y)<19){e.hp--;dead=true;break}}}else{for(let e of enemies){if(dist(s.x,s.y,e.x,e.y)<21){e.hp--;score+=10;dead=true;break}}if(shadow&&dist(s.x,s.y,shadow.x,shadow.y)<34){dead=true;if(shadow.final){shadow.hp--;addParticles(shadow.x,shadow.y,'#f76383',12);if(shadow.hp<=0){state='won';endGame(true);return}}else {shadow.stun=1.6;audio(80,.3,'triangle',.05,45)}}}}
-if(dead){shots.splice(shots.indexOf(s),1);if(s.life>0)addParticles(s.x,s.y,s.enemy?'#f7a669':'#64ffe6',5,65)}}
+ // A projectile can only hit a valid opposing target. Enemy friendly fire is disabled.
+ // Continuous bullet-to-circle segment intersection prevents missed hits at low frame rates.
+ for(let s of [...shots]){
+  const ox=s.x,oy=s.y;
+  s.x+=s.vx*dt;s.y+=s.vy*dt;s.life-=dt;
+  let dead=s.life<=0||s.x<AX+15||s.x>RIGHT-15||s.y<AY+15||s.y>BOTTOM-15||insideAnyWall(s.x,s.y,5);
+  if(!dead){
+   if(s.enemy){
+    if(segmentCircleHit(ox,oy,s.x,s.y,player.x,player.y,14)&&player.invuln<=0){die();return}
+   }else{
+    for(let e of enemies){
+     if(e.hp>0&&segmentCircleHit(ox,oy,s.x,s.y,e.x,e.y,21)){
+      e.hp--;score+=10;if(e.hp===0)roomKills++;
+      dead=true;break;
+     }
+    }
+    if(!dead&&shadow&&segmentCircleHit(ox,oy,s.x,s.y,shadow.x,shadow.y,34)){
+     dead=true;
+     if(shadow.final){shadow.hp--;addParticles(shadow.x,shadow.y,'#f76383',12);if(shadow.hp<=0){state='won';endGame(true);return}}
+     else{shadow.stun=1.6;audio(80,.3,'triangle',.05,45)}
+    }
+   }
+  }
+  if(dead){shots.splice(shots.indexOf(s),1);if(s.life>0)addParticles(s.x,s.y,s.enemy?'#f7a669':'#64ffe6',5,65)}
+ }
 for(let e of [...enemies])if(e.hp<=0){addParticles(e.x,e.y,e.type==='jumper'?'#6bffc6':e.type==='drone'?'#ab8bf1':'#ff946a',17,160);enemies.splice(enemies.indexOf(e),1);audio(138,.19,'sawtooth',.028,-95)}
-if(enemies.length===0&&!cleared.has(room)){score+=200;cleared.add(room);notice='СЕКТОР ЗАЧИЩЕН +200';noticeTime=1.6;audio(360,.2,'triangle',.03,400)}
+if(roomEnemiesStarted>0&&enemies.length===0&&roomKills===roomEnemiesStarted&&!cleared.has(room)){score+=200;cleared.add(room);notice='СЕКТОР ЗАЧИЩЕН +200';noticeTime=1.6;audio(360,.2,'triangle',.03,400)}
 if(!shadow&&roomTime>(difficulty==='advanced'?14.5:21)){shadow={x:AX+29,y:AY+30,stun:0,final:false};audio(70,.65,'sawtooth',.07,-32);notice='ТЕНЬ ПРИБЫЛА';noticeTime=1.5}
 if(shadow){if(shadow.stun>0)shadow.stun-=dt;else if(!shadow.final){let dx=player.x-shadow.x,dy=player.y-shadow.y,d=Math.hypot(dx,dy)||1;shadow.x+=dx/d*dt*(91+level*15);shadow.y+=dy/d*dt*(91+level*15);if(d<34&&player.invuln<=0){die();return}}}
 for(let p of [...particles]){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=1-dt*2;p.vy*=1-dt*2;p.life-=dt;if(p.life<=0)particles.splice(particles.indexOf(p),1)}
 if(score>best){best=score}
 }
+function selectDifficulty(mode){
+ difficulty=mode;
+ document.querySelectorAll('.mode').forEach(el=>el.classList.toggle('selected',el.dataset.mode===mode));
+}
+let menuPadLastDir=0,menuPadConfirmHeld=false,menuPadStartHeld=false,menuFireBlocked=false;
+function handleControllerUI(){
+ let x=0,y=0,confirm=false,startPressed=false;
+ const pads=typeof navigator.getGamepads==='function'?navigator.getGamepads():[];
+ for(const gp of pads){if(!gp||!gp.connected)continue;
+  let gx=gp.buttons[14]?.pressed?-1:gp.buttons[15]?.pressed?1:(gp.axes[0]||0);
+  let gy=gp.buttons[12]?.pressed?-1:gp.buttons[13]?.pressed?1:(gp.axes[1]||0);
+  if(Math.hypot(gx,gy)>Math.hypot(x,y)){x=gx;y=gy}
+  confirm=confirm||Boolean(gp.buttons[0]?.pressed);
+  startPressed=startPressed||Boolean(gp.buttons[9]?.pressed);
+ }
+ // The Android native Activity feeds events here even when WebView lacks Gamepad API support.
+ const np=window.__nativePad;
+ if(np){if(Math.hypot(np.x||0,np.y||0)>.2){x=np.x;y=np.y}
+  confirm=confirm||Boolean(np.confirm);startPressed=startPressed||Boolean(np.start);
+ }
+ const nav=Math.abs(x)>=.60?(x>0?1:-1):Math.abs(y)>=.60?(y>0?1:-1):0;
+ const menuOpen=!ui.menu.classList.contains('hidden');
+ if(menuOpen){
+  if(nav&&nav!==menuPadLastDir)selectDifficulty(nav>0?'advanced':'novice');
+  if((confirm&&!menuPadConfirmHeld)||(startPressed&&!menuPadStartHeld)){
+   if(confirm)menuFireBlocked=true;start();
+  }
+ }else if(startPressed&&!menuPadStartHeld&&(state==='playing'||state==='paused'))togglePause();
+ if(!confirm)menuFireBlocked=false;
+ menuPadLastDir=nav;menuPadConfirmHeld=confirm;menuPadStartHeld=startPressed;
+}
 function start(){genMaze();initialized=true;score=0;lives=difficulty==='advanced'?3:5;keysCollected.clear();claimed.clear();opened.clear();cleared.clear();discovered.clear();gameTime=0;roomTime=0;shootTimer=0;player={x:480,y:330,dir:0,anim:0,invuln:.7};ui.menu.classList.add('hidden');ui.hint.textContent='WASD / СТРЕЛКИ · ALT + НАПРАВЛЕНИЕ: ОГОНЬ · P: ПАУЗА';state='playing';setRoom(0);try{if(ctxAudio?.state==='suspended')ctxAudio.resume()}catch(e){}}
 function togglePause(){if(state==='playing'){state='paused';ui.pause.textContent='ПРОДОЛЖИТЬ'}else if(state==='paused'){state='playing';ui.pause.textContent='ПАУЗА'}}
-for(let b of document.querySelectorAll('.mode'))b.addEventListener('click',()=>{difficulty=b.dataset.mode;document.querySelectorAll('.mode').forEach(x=>x.classList.toggle('selected',x===b))});ui.start.addEventListener('click',start);ui.pause.addEventListener('click',togglePause);ui.sound.addEventListener('click',()=>{sound=!sound;ui.sound.textContent='ЗВУК: '+(sound?'ВКЛ':'ВЫКЛ')});document.getElementById('fullButton').addEventListener('click',async()=>{try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen();try{await screen.orientation?.lock?.('landscape')}catch(_){}}else await document.exitFullscreen()}catch(e){}});
-window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','AltLeft','AltRight','ControlLeft','ControlRight','KeyP','Escape','Numpad2','Numpad4','Numpad6','Numpad8'].includes(e.code))e.preventDefault();K.add(e.code);if(e.code==='KeyP'||e.code==='Escape'){if(!e.repeat)togglePause()}if((e.code==='Enter'||e.code==='Space')&&state==='menu'&& !e.repeat){start()}});window.addEventListener('keyup',e=>K.delete(e.code));window.addEventListener('blur',()=>{K.clear();touch.fire=false;touch.active=false;if(state==='playing')togglePause()});
+for(let b of document.querySelectorAll('.mode'))b.addEventListener('click',()=>selectDifficulty(b.dataset.mode));ui.start.addEventListener('click',start);ui.pause.addEventListener('click',togglePause);ui.sound.addEventListener('click',()=>{sound=!sound;ui.sound.textContent='ЗВУК: '+(sound?'ВКЛ':'ВЫКЛ')});document.getElementById('fullButton').addEventListener('click',async()=>{try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen();try{await screen.orientation?.lock?.('landscape')}catch(_){}}else await document.exitFullscreen()}catch(e){}});
+window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','AltLeft','AltRight','ControlLeft','ControlRight','KeyP','Escape','Numpad2','Numpad4','Numpad6','Numpad8'].includes(e.code))e.preventDefault();K.add(e.code);if(e.code==='KeyP'||e.code==='Escape'){if(!e.repeat)togglePause()}if(!ui.menu.classList.contains('hidden')&&!e.repeat){
+ if(e.code==='ArrowLeft'||e.code==='ArrowUp'||e.code==='KeyA'||e.code==='KeyW')selectDifficulty('novice');
+ if(e.code==='ArrowRight'||e.code==='ArrowDown'||e.code==='KeyD'||e.code==='KeyS')selectDifficulty('advanced');
+ if(e.code==='Enter'||e.code==='Space')start();
+ }});window.addEventListener('keyup',e=>K.delete(e.code));window.addEventListener('blur',()=>{K.clear();touch.fire=false;touch.active=false;if(state==='playing')togglePause()});
 const stick=document.getElementById('stick'),nub=document.getElementById('nub'),fire=document.getElementById('fire');let stickPointer=null,firePointer=null;
 function moveStick(e){const r=stick.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/(r.width*.36),y=(e.clientY-r.top-r.height/2)/(r.height*.36),n=Math.max(1,Math.hypot(x,y));touch.x=x/n;touch.y=y/n;touch.active=true;nub.style.transform=`translate(${touch.x*r.width*.27}px,${touch.y*r.height*.27}px)`}
 stick.addEventListener('pointerdown',e=>{e.preventDefault();stickPointer=e.pointerId;stick.setPointerCapture(e.pointerId);moveStick(e)});stick.addEventListener('pointermove',e=>{if(e.pointerId===stickPointer)moveStick(e)});function stopStick(e){if(e.pointerId!==stickPointer)return;stickPointer=null;touch.x=touch.y=0;touch.active=false;nub.style.transform='translate(0,0)'}stick.addEventListener('pointerup',stopStick);stick.addEventListener('pointercancel',stopStick);
 fire.addEventListener('pointerdown',e=>{e.preventDefault();firePointer=e.pointerId;fire.setPointerCapture(e.pointerId);touch.fire=true;fire.classList.add('down')});function stopFire(e){if(e.pointerId===firePointer){touch.fire=false;firePointer=null;fire.classList.remove('down')}}fire.addEventListener('pointerup',stopFire);fire.addEventListener('pointercancel',stopFire);
 // Keep on-screen canvas responsive without changing world collision coordinates.
-let last=performance.now();function frame(now){let dt=Math.min((now-last)/1000,.033);last=now;tick(dt);draw(now/1000);requestAnimationFrame(frame)}genMaze();room=0;level=0;buildWalls();paintFloor();requestAnimationFrame(frame);
+let last=performance.now();function frame(now){let dt=Math.min((now-last)/1000,.033);last=now;handleControllerUI();tick(dt);draw(now/1000);requestAnimationFrame(frame)}genMaze();room=0;level=0;buildWalls();paintFloor();requestAnimationFrame(frame);
 })();
 </script></body></html>
